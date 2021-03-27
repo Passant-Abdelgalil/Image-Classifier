@@ -24,11 +24,13 @@ jupyter notebook Project_Image_Classifier_Project.ipynb
 
 ## CLI Application
 A Python script that runs from the command line / terminal.
+
 **Basic Usage**
 ```bash
 python predict.py /path/to/image saved_model
 ```
 with saved_model file name = `tested_model_HDF5.h5`
+
 **Options**
 - --top_k: returns the top K most likely classes.
 ```bash
