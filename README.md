@@ -41,5 +41,5 @@ python predict.py /path/to/image saved_model --category_names map.json
 with json file = `label_map.json`
 ## Data
 The data for this project is quite large, it's oxford flowers dataset with 102 different types of flowers. with 1020 examples for training and 1020 examples for validation and 6149 examples for testing.
-![examples](./assets/Flowers.png)
+![examples](Flowers.png)
 
