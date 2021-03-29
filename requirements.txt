@@ -1,0 +1,5 @@
+numpy
+silence_tensorflow
+tensorflow
+tensorflow-hub
+argparse
