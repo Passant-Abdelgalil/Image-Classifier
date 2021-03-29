@@ -2,9 +2,10 @@ from PIL import Image
 import json
 import numpy as np
 import matplotlib.pyplot as plt
+from silence_tensorflow import silence_tensorflow
+silence_tensorflow()
 import tensorflow as tf
 import tensorflow_hub as hub
-
 
 
 def process_image(image):
@@ -21,15 +22,29 @@ def predict(img, model, top_k=1):
 
 
 def read_image(file_path):
-    return Image.open(file_path)
+    try:
+        image = Image.open(file_path)
+        return image
+    except Exception:
+        print("\n========= not a valid image file path! ==========")
+        return None
 
 
 def load_model(model_file):
-    return tf.keras.models.load_model(model_file, custom_objects={'KerasLayer':hub.KerasLayer},compile=False)
+    try:
+        model = tf.keras.models.load_model(model_file, custom_objects={'KerasLayer':hub.KerasLayer}, compile=False)
+        return model
+    except Exception:
+        print("\n========= not a valid path for a .h5 file =========")
+        return None
 
 
 def load_jsonify_classes(file_name):
-    with open('label_map.json', 'r') as f:
-        class_names = json.load(f)
-    return class_names
+    try:
+        with open(file_name, 'r') as f:
+            class_names = json.load(f)
+        return class_names
+    except Exception:
+        print("\n========= Not a valid JSON file ==========")
+        return None
 
