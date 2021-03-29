@@ -17,7 +17,7 @@ def process_image(image):
 def predict(img, model, top_k=1):
     probs = model.predict(img)[0]
     classes_indecies = [ str(ind+1) for ind in np.argsort(probs)[-top_k:]]
-    return probs[np.argsort(probs)[-top_k:]], classes_indecies
+    return probs[np.argsort(probs)[-top_k:]][::-1], classes_indecies
 
 
 def read_image(file_path):
