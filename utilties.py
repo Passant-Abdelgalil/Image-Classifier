@@ -1,7 +1,6 @@
 from PIL import Image
 import json
 import numpy as np
-import matplotlib.pyplot as plt
 from silence_tensorflow import silence_tensorflow
 silence_tensorflow()
 import tensorflow as tf

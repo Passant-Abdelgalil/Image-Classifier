@@ -1,4 +1,3 @@
-import sys
 import argparse
 from utilties import (
     read_image,
